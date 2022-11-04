@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  - var results = [{"house_Name": "Apartment building", "house_Type": "Multifamily", "house_Cost": 40000},{"house_Name": "Bungalow", "house_Type": "Townhomes", "house_Cost": 6000},{"house_Name": "Cabin", "house_Type": "Tiny Home", "house_Cost": 8000}]
+  div(class = "container-fluid")
+    div(class = "row")
+      each item, index in results 
+        div(class="col-sm-2", onClick=`buy(${index})`) house_Name : #{item["house_Name"]}  <br>  house_Type : #{item["house_Type"]}  <br>  house_Cost: #{item["house_Cost"]}
+        script.
+          function buy(val) {
+            alert(`You purchased item ${val}`)
+          }
