@@ -6,6 +6,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var houseRouter = require('./routes/house');
+var resourceRouter = require('./routes/resource');
 require('dotenv').config(); 
 const connectionString =  
 process.env.MONGO_CON 
@@ -30,27 +31,28 @@ app.use('/users', usersRouter);
 app.use('/house', houseRouter);
 app.use('/gridbuild', gridbuildRouter);
 app.use('/selector', selectorRouter);
+app.use('/resource', resourceRouter);
 // We can seed the collection if needed on server start 
 async function recreateDB(){ 
   // Delete everything 
   await house.deleteMany(); 
   let instance1 = new 
-house({house_type:"Appartment",  size:"single", 
-cost:4000}); 
+house({house_Name:"Appartment",  house_Type:"single", 
+house_Cost:4000}); 
   instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("First object saved") 
   }); 
   let instance2 = new 
-  house({house_type:"building",  size:"multifamily", 
-  cost:3000}); 
+  house({house_Name:"building",  house_Type:"multifamily", 
+  house_Cost:3000}); 
     instance2.save( function(err,doc) { 
         if(err) return console.error(err); 
         console.log("second object saved") 
     }); 
   let instance3 = new 
-  house({house_type:"bedroom",  size:"small", 
-  cost:6000}); 
+  house({house_Name:"bedroom",  house_Type:"small", 
+  house_Cost:6000}); 
     instance3.save( function(err,doc) { 
         if(err) return console.error(err); 
         console.log("Third object saved") 
