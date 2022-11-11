@@ -62,3 +62,34 @@ exports.house_view_all_Page = async function(req, res) {
         res.send(`{"error": ${err}}`); 
     }   
 }; 
+// for a specific house.
+exports.house_detail = async function(req, res) {
+    console.log("detail" + req.params.id)
+    try {
+    result = await house.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+    };
+    //Handle Costume update form on PUT.
+    exports.house_update_put = async function(req, res) {
+    console.log(`update on id ${req.params.id} with body
+    ${JSON.stringify(req.body)}`)
+    try {
+    let toUpdate = await house.findById( req.params.id)
+    // Do updates of properties
+    if(req.body.house_Type)
+    toUpdate.house_Type = req.body.house_Type;
+    if(req.body.house_Cost) toUpdate.house_Cost = req.body.house_Cost;
+    if(req.body.house_Name) toUpdate.house_Name = req.body.house_Name;
+    let result = await toUpdate.save();
+    console.log("Sucess " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": ${err}: Update for id ${req.params.id}
+    failed`);
+    }
+    };
