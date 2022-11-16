@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+.houseAttr {
+  background-color: #690d96;
+  width: 120px;
+  text-shadow: 2px 2px #43948d ;
+  }
