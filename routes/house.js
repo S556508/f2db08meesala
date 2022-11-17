@@ -23,7 +23,7 @@ var router = express.Router();
 
 /* GET detail house page */
 router.get('/detail', house_controllers.house_view_one_Page);
-/* GET create costume page */
+/* GET create house page */
 router.get('/create', house_controllers.house_create_Page);
 /* GET create update page */
 router.get('/update', house_controllers.house_update_Page);

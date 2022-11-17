@@ -7,8 +7,51 @@ a {
   color: #00B7FF;
 }
 
-.houseAttr {
-  background-color: hsl(147, 84%, 32%);
-  width: 120px;
+.houseAttr { 
+  background-color: aquamarine;
+  width: 200px;
+  margin: 10px;
+  text-align: left;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  font-weight: bolder;
+} 
 
-  }
+#title {
+  color: blue;
+  font-weight: bold;
+  text-align: center;
+  font-size: xx-large;
+
+}
+.rowd{
+  text-align: center;
+  background-color: beige;
+}
+
+.values {
+  margin-right: 20px;
+  margin-bottom: 0;
+  padding: 10px;
+  justify-content: center;
+  font-weight: bold;
+  background-color: rgb(236, 101, 123);
+  border-radius: 100px;
+}
+
+.values:hover {
+  background-color: chartreuse;
+  color: black;
+}
+
+.paddingcustom {
+  padding: 10px 10px;
+  justify-content: space-between;
+}
+
+#btn1{
+  align-items: center;
+}
