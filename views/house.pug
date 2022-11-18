@@ -5,10 +5,19 @@ block content
   
   - var results = [{"house_Name": "Apartment building", "house_Type": "Multifamily", "house_Cost": 40000},{"house_Name": "Bungalow", "house_Type": "Townhomes", "house_Cost": 6000},{"house_Name": "Cabin", "house_Type": "Tiny Home", "house_Cost": 8000}, {"house_Name": "bangla", "house_Type": "large", "house_Cost": 3500}]
   div(class = "container-fluid")
-    div(class = "row")
-      each item, index in results 
-        div(class="col-sm-2", onClick=`buy(${index})`) house_Name : #{item["house_Name"]}  <br>  house_Type : #{item["house_Type"]}  <br>  house_Cost: #{item["house_Cost"]}
+    div(class = "row m-1" )
+      each item, index in results
+        - let destination = `dispatch(\"/house/update?id=${item._id}\")` 
+        div(class="row-sm-2", class="m-1") house: #{item.house_Name}(#{item.house_Type}) is #{item.house_Cost}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update  
+
+        
         script.
           function buy(val) {
             alert(`You purchased item ${val}`)
           }
+
+          function dispatch(path){ 
+            window.location.href=path 
+          } 
+ 

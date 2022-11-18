@@ -20,6 +20,7 @@ var express = require('express');
 const house_controllers= require('../controllers/house');
 
 var router = express.Router();
+router.get('/', house_controllers.house_view_all_Page ); 
 
 /* GET detail house page */
 router.get('/detail', house_controllers.house_view_one_Page);
