@@ -43,7 +43,7 @@ exports.house_view_one_Page = async function(req, res) {
     };
 
 
-// Handle Costume delete on DELETE.
+// Handle House delete on DELETE.
 exports.house_delete = async function(req, res) {
     console.log("delete " + req.params.id)
     try {
@@ -95,7 +95,7 @@ exports.house_detail = async function(req, res) {
     res.send(`{"error": document for id ${req.params.id} not found`);
     }
     };
-    //Handle Costume update form on PUT.
+    //Handle House update form on PUT.
     exports.house_update_put = async function(req, res) {
     console.log(`update on id ${req.params.id} with body
     ${JSON.stringify(req.body)}`)
